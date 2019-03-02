@@ -56,7 +56,7 @@ label{
     text-decoration: none;
     font-size: 33px;
     display: block;
-    background: #f1ff30;
+    background: #ffea30;
     padding: 34px 20px;
     font-weight: 600;
 }
@@ -127,7 +127,7 @@ label{
   left: 50%;
   right: 50%;
   bottom: 0;
-  background:#ff304d;
+  background:#ffea30;
   height: 2px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
@@ -220,7 +220,7 @@ label{
     position: relative;
 }
 input.checkbox {
-    background: #ff304d;
+    background: #ffea30;
     cursor: pointer;
     width: 1.2em;
     height: 1.2em;
@@ -506,7 +506,7 @@ input.checkbox:checked:after {
     border: 2px solid #fff;
 }
 .callbacks_here a:after{
-	background:#ff304d;
+	background:#ffea30;
 }
 /*----*/
 .header {
@@ -619,7 +619,7 @@ option {
     letter-spacing: 1px;
     text-transform: uppercase;
     border: none;
-    background: #ff304d;
+    background: #ffea30;
     -webkit-transition: 0.5s all;
     -o-transition: 0.5s all;
     -moz-transition: 0.5s all;
@@ -762,7 +762,7 @@ h4.title-w3 ,h2.title-w3 {
 /*-- //main --*/
 /*-- welcome --*/
 .w3-welcome-left h5 {
-    color: #ff304d;
+    color: #ffea30;
     font-size: 1.5em;
     text-transform: uppercase;
     font-weight: 600;
@@ -834,7 +834,7 @@ h4.agileits.w3layouts span {
     text-transform: uppercase!important;
     letter-spacing: 0.5px;
     font-weight: bold;
-    color: #ff304d;
+    color: #ffea30;
 }
 .jarallax {
     position: relative;
@@ -868,7 +868,7 @@ h4.agileits.w3layouts span {
 }
 .agile-why-text h4 {
     font-size: 1.5em;
-    color: #ff304d;
+    color: #ffea30;
     letter-spacing: 1px;
 }
 .agile-why-text p {
@@ -941,7 +941,7 @@ h4.agileits.w3layouts span {
   left: 0;
   right: 0;
   bottom: 0;
-     background: #ff304d;
+     background: #ffea30;
   -webkit-transform: scale(0);
   transform: scale(0);
   -webkit-transition-property: transform;
@@ -1177,7 +1177,7 @@ i#jzBoxClose {
     width: 100%;
     text-align: center;
     background: rgba(1, 188, 250, 0.86);
-    border-bottom: 2px solid #ff304d;
+    border-bottom: 2px solid #ffea30;
     padding: 1em;
     -webkit-transition: .5s all;
     -moz-transition: .5s all;
@@ -1207,7 +1207,7 @@ i#jzBoxClose {
 }
 .contact-left {
     padding: 2.3em 3em;
-    background: #ff304d;
+    background: #ffea30;
 }
 .contact-agile {
     position: absolute;
@@ -1336,7 +1336,7 @@ a.a2:hover {
     background: #1e2223;
 }
 .copy p a {
-    color: #ff304d;
+    color: #ffea30;
     text-decoration: none;
 	transition: 0.5s all;
     -webkit-transition: 0.5s all;
@@ -1810,7 +1810,7 @@ a.a2:hover {
 	}
 	.contact-left {
 		padding: 2em 2.5em;
-		background: #ff304d;
+		background: #ffea30;
 	}
 	.contact-agile {
 		left: 17.5em;
@@ -2315,7 +2315,7 @@ a.a2:hover {
 	}
 	.contact-left {
 		padding: 1.7em 2em;
-		background: #ff304d;
+		background: #ffea30;
 	}
 	.agileits-login input[type="text"], .agileits-login input[type="password"], .agileits-login input[type="email"], .agileits-login textarea {
 		margin-bottom: 0.8em;
