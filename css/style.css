@@ -56,7 +56,7 @@ label{
     text-decoration: none;
     font-size: 33px;
     display: block;
-    background: #ffea30;
+    background: #f6b620;
     padding: 34px 20px;
     font-weight: 600;
 }
@@ -76,7 +76,7 @@ label{
     border-right: 2px solid #070707;
     padding-right: 10px;
     margin-right: 10px;
-	    float: left;
+	float:left;
 }
 .nav-contact-w3ls p {
     display: inline-block;
@@ -127,7 +127,7 @@ label{
   left: 50%;
   right: 50%;
   bottom: 0;
-  background:#ffea30;
+  background:#f6b620;
   height: 2px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
@@ -158,7 +158,7 @@ label{
 	margin-right:0!important;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus,.navbar-default .navbar-nav li a.active {
-    color: #ff8c00;
+    color: #f6b620;
 }
 .navbar-right {
     float: right!important;
@@ -220,7 +220,7 @@ label{
     position: relative;
 }
 input.checkbox {
-    background: #ffea30;
+    background: #f6b620;
     cursor: pointer;
     width: 1.2em;
     height: 1.2em;
@@ -754,7 +754,7 @@ a.navbar-brand span {
 }
 h4.title-w3 ,h2.title-w3 {
     font-size: 35px;
-    color: #101010;
+    color: #f6b620;
     text-align: center;
     margin-bottom: 45px;
 	text-transform:uppercase;
@@ -762,7 +762,7 @@ h4.title-w3 ,h2.title-w3 {
 /*-- //main --*/
 /*-- welcome --*/
 .w3-welcome-left h5 {
-    color: #ffea30;
+    color: #888;
     font-size: 1.5em;
     text-transform: uppercase;
     font-weight: 600;
@@ -770,17 +770,21 @@ h4.title-w3 ,h2.title-w3 {
     margin: 0;
     line-height: 40px;
 }
+
+.w3-welcome-left h4 {
+	color: #888;
+}
 .w3-welcome-left p {
     color: #888;
     line-height: 1.9em;
-    margin: 1em 0 0 0;
+    margin: 1em 0 1em 0;
     font-size: 16px;
 	letter-spacing: .5px;
 }
-.w3-welcome-left p span{
-	display:block;
-	margin:1em 0 0 0;
+.w3-welcome-left h5 span{
+	color: #1f4898 ;
 }
+
 .w3ls-welcome-img1 img{
 	width:100%;
 }
@@ -790,9 +794,9 @@ h4.title-w3 ,h2.title-w3 {
 /*-- //welcome --*/
 /*-- Stats --*/
 .stats-agileits {
-    background: url(../images/counter.jpg)no-repeat 0px 0px;
+    background: url(../images/estudantes.jpg)no-repeat 0px 0px;
     background-size: cover;
-    padding: 0;
+	padding: 0;
     position: relative;
     text-align: center;
     z-index: 999;
@@ -800,7 +804,7 @@ h4.title-w3 ,h2.title-w3 {
 }
 .stats-grid {
     text-align: center;
-    margin-bottom: 2em;
+	margin-bottom: 2em;
 }
 .numscroller {
     font-size: 40px;
@@ -813,18 +817,18 @@ h4.title-w3 ,h2.title-w3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 19px;
     font-weight: 700;
-    margin-top: .5em;
+	margin-top: .5em;
     color: #7fd8f5;
     text-transform: capitalize;
     padding: 20px;
     line-height: 29px;
     letter-spacing: 1px;
     background: rgba(1, 188, 250, 0.18);
-    border-bottom: 2px solid rgba(202, 31, 38, 0.59);
+    border-bottom: 2px solid #f6b620;
 }
 .stats-info {
     margin: 0 auto;
-    padding: 2em 2em;
+    padding: 2em 5em;
     /* border: 5px solid rgba(238, 238, 238, 0.51); */
     background: rgba(0, 0, 0, 0.78);
 }
@@ -834,7 +838,7 @@ h4.agileits.w3layouts span {
     text-transform: uppercase!important;
     letter-spacing: 0.5px;
     font-weight: bold;
-    color: #ffea30;
+    color: #f6b620;
 }
 .jarallax {
     position: relative;
@@ -2478,6 +2482,7 @@ a.a2:hover {
 	.mid-img-agileits {
 		width: 80%;
 	}
+
 	.team-grid-text-agile {
 		min-height: 460px;
 		padding: 2.3em 1.5em 0em;
