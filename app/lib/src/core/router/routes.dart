@@ -26,6 +26,7 @@ abstract class Routes {
   static const challenge = '/more/challenge';
   static const academy = '/more/academy';
   static const aiChat = '/more/ai';
+  static const aiScan = '/more/ai/scan';
   static const patrimony = '/more/patrimony';
   static const score = '/more/score';
   static const settings = '/more/settings';

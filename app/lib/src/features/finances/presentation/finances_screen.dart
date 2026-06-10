@@ -18,7 +18,16 @@ class FinancesScreen extends ConsumerWidget {
     final summary = ref.watch(financeSummaryProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Finanças')),
+      appBar: AppBar(
+        title: const Text('Finanças'),
+        actions: [
+          IconButton(
+            tooltip: 'Digitalizar comprovante',
+            onPressed: () => context.push(Routes.aiScan),
+            icon: const Icon(Icons.document_scanner_outlined),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: MajuColors.orange500,
         foregroundColor: Colors.white,

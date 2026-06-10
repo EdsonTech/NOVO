@@ -48,6 +48,30 @@ flutter build apk --release \
 flutter build ipa --release   # iOS
 ```
 
+## MAJU IA — permissões de plataforma (digitalizar comprovante)
+
+A captura de comprovante usa `image_picker`. Quando os projetos nativos forem
+gerados (`flutter create . --platforms=ios,android` dentro de `/app`), adicione:
+
+- **iOS** — `ios/Runner/Info.plist`:
+  ```xml
+  <key>NSCameraUsageDescription</key>
+  <string>A MAJU usa a câmara para digitalizar comprovantes.</string>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>A MAJU acede às fotos para importar comprovantes.</string>
+  ```
+- **Android** — sem permissões adicionais para galeria; `minSdk 21+` (image_picker 1.x).
+
+A função `image_picker` é chamada com `imageQuality: 85`, que reencoda para **JPEG**,
+em linha com o MIME `data:image/jpeg;base64,...` esperado pela Edge Function `maju-ai`.
+
+### Edge Function MAJU IA
+```bash
+supabase functions deploy maju-ai
+supabase secrets set AZURE_OPENAI_ENDPOINT=... AZURE_OPENAI_KEY=... AZURE_OPENAI_DEPLOYMENT=gpt-4o
+```
+`supabase/config.toml` força `verify_jwt = true` — só chamadas autenticadas.
+
 ## Protótipo web (referência de design)
 O protótipo HTML/CSS/JS continua em [`/prototype`](../prototype) como referência visual:
 ```bash

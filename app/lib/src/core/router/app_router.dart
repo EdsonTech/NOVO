@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/ai/presentation/ai_chat_screen.dart';
+import '../../features/ai/presentation/receipt_scan_screen.dart';
 import '../../features/challenge/presentation/challenge_screen.dart';
 import '../../features/dashboard/presentation/home_screen.dart';
 import '../../features/family/presentation/family_screen.dart';
@@ -48,9 +50,12 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       // Desafio 1 Milhão (implementado)
       GoRoute(path: Routes.challenge, builder: (_, __) => const ChallengeScreen()),
 
+      // MAJU IA (implementado): chat + digitalizar comprovante
+      GoRoute(path: Routes.aiChat, builder: (_, __) => const AiChatScreen()),
+      GoRoute(path: Routes.aiScan, builder: (_, __) => const ReceiptScanScreen()),
+
       // Journeys scaffolded as placeholders (owned by later sprints).
       GoRoute(path: Routes.academy, builder: (_, __) => const JourneyPlaceholderScreen(title: 'Academia MAJU', sprint: 'Sprint 8', icon: Icons.school_outlined)),
-      GoRoute(path: Routes.aiChat, builder: (_, __) => const JourneyPlaceholderScreen(title: 'MAJU IA', sprint: 'Sprint 9', icon: Icons.smart_toy_outlined)),
       GoRoute(path: Routes.patrimony, builder: (_, __) => const JourneyPlaceholderScreen(title: 'Meus Activos', sprint: 'Sprint 10', icon: Icons.home_outlined)),
       GoRoute(path: Routes.score, builder: (_, __) => const JourneyPlaceholderScreen(title: 'Score MAJU', sprint: 'Sprint 11', icon: Icons.star_outline)),
       GoRoute(path: Routes.settings, builder: (_, __) => const JourneyPlaceholderScreen(title: 'Configurações', sprint: 'Sprint 2', icon: Icons.settings_outlined)),

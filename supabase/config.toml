@@ -1,0 +1,6 @@
+# Supabase project config (fragment). Merge with the generated config.toml
+# (`supabase init`) — keep the project_id from that file.
+
+# MAJU IA function: require a valid Supabase JWT (no anonymous calls).
+[functions.maju-ai]
+verify_jwt = true

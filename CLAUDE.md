@@ -69,9 +69,18 @@ styles when a component/token exists.
 ### Implemented vs scaffolded
 - **Fully wired:** onboarding (splash + 3 steps); Dashboard; Finanças (movements list +
   add with live totals, Fluxo de Caixa via `fl_chart`, Dívidas + plano); Família; Sonhos
-  (live goals repo, criar meta, simulador); **Desafio 1 Milhão**.
+  (live goals repo, criar meta, simulador); **Desafio 1 Milhão**; **MAJU IA** (chat +
+  digitalizar comprovante → extração → classificação → lançamento automático).
 - **Placeholders** (routed to `JourneyPlaceholderScreen`, owned by later sprints):
-  Academia, MAJU IA, Património, Score, Configurações, Centro de Negócios/Marketplace.
+  Academia, Património, Score, Configurações, Centro de Negócios/Marketplace.
+
+### MAJU IA (receipt → auto-entry)
+`features/ai/` follows the same swap pattern: `AiRepository` interface with
+`MockAiRepository` (offline) and `SupabaseAiRepository` (calls the `maju-ai` Edge
+Function → Azure OpenAI). The API key stays **server-side** in
+`supabase/functions/maju-ai/index.ts`. `CategoryClassifier` (pure Dart) normalises/
+validates the model's category against MAJU's canonical list. The scan flow pre-fills an
+editable review screen, then creates a `Transaction` via `addTransactionProvider`.
 - The web prototype in `/prototype` already models the UI for **all** 30 screens — use it
   as the spec when implementing a placeholder.
 

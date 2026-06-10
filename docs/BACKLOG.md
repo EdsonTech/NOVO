@@ -65,9 +65,13 @@ para receber metas personalizadas.
 - ⬜ T9.2 Curso (vídeo, PDF, quiz, certificado) (5 SP)
 
 ## ÉPICO 10 — MAJU IA  *(Squad C · S10)*
-- ⬜ T10.1 Edge Function → Azure OpenAI (proxy seguro) (5 SP)
-- ⬜ T10.2 Chat financeiro (contexto do agregado) (5 SP)
-- ⬜ T10.3 Assistente Familiar (análise, alertas, sugestões) (3 SP)
+- ✅ T10.1 Edge Function `maju-ai` → Azure OpenAI (proxy seguro, chave server-side) (5 SP)
+- ✅ T10.2 Chat financeiro (`AiChatScreen`, repo live/mock) (5 SP)
+- ✅ T10.4 **Digitalizar comprovante** → extração (visão) → classificação → lançamento automático (8 SP)
+  - ✅ `image_picker` (câmara/galeria), `ReceiptScan` (domínio), `AiRepository` (mock + Edge Function)
+  - ✅ `CategoryClassifier` local (normaliza/valida a categoria do modelo)
+  - ✅ Ecrã de revisão editável + criação da `Transaction` via `addTransactionProvider`
+- 🟨 T10.3 Assistente Familiar (análise, alertas, sugestões) — chat base feito; alertas pendentes (3 SP)
 
 ## ÉPICO 11 — Património  *(Squad C · S11)*
 - ⬜ T11.1 CRUD de activos/passivos (3 SP)

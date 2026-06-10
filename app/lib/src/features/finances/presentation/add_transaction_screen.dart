@@ -23,7 +23,7 @@ class _AddTransactionScreenState extends ConsumerState<AddTransactionScreen> {
 
   List<String> get _categories => widget.isIncome
       ? const ['Salário', 'Negócio', 'Freelance', 'Comissões', 'Outros']
-      : const ['Alimentação', 'Transporte', 'Habitação', 'Educação', 'Saúde', 'Telecomunicações'];
+      : const ['Alimentação', 'Transporte', 'Habitação', 'Educação', 'Saúde', 'Telecomunicações', 'Outros'];
 
   @override
   void dispose() {
