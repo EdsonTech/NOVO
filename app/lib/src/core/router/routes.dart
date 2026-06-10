@@ -28,6 +28,8 @@ abstract class Routes {
   static const aiChat = '/more/ai';
   static const aiScan = '/more/ai/scan';
   static const patrimony = '/more/patrimony';
+  static const patrimonyEvolution = '/more/patrimony/evolution';
   static const score = '/more/score';
+  static const eligibility = '/more/score/eligibility';
   static const settings = '/more/settings';
 }

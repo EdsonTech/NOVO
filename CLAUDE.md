@@ -70,9 +70,11 @@ styles when a component/token exists.
 - **Fully wired:** onboarding (splash + 3 steps); Dashboard; Finanças (movements list +
   add with live totals, Fluxo de Caixa via `fl_chart`, Dívidas + plano); Família; Sonhos
   (live goals repo, criar meta, simulador); **Desafio 1 Milhão**; **MAJU IA** (chat +
-  digitalizar comprovante → extração → classificação → lançamento automático).
+  digitalizar comprovante → extração → classificação → lançamento automático);
+  **Património** (activos live + evolução `fl_chart`); **Score MAJU + Microcrédito**
+  (score 0–1000 derivado das finanças + elegibilidade).
 - **Placeholders** (routed to `JourneyPlaceholderScreen`, owned by later sprints):
-  Academia, Património, Score, Configurações, Centro de Negócios/Marketplace.
+  Academia, Configurações, Centro de Negócios/Marketplace.
 
 ### MAJU IA (receipt → auto-entry)
 `features/ai/` follows the same swap pattern: `AiRepository` interface with

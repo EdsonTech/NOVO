@@ -74,13 +74,13 @@ para receber metas personalizadas.
 - 🟨 T10.3 Assistente Familiar (análise, alertas, sugestões) — chat base feito; alertas pendentes (3 SP)
 
 ## ÉPICO 11 — Património  *(Squad C · S11)*
-- ⬜ T11.1 CRUD de activos/passivos (3 SP)
-- ⬜ T11.2 Património líquido + evolução anual (gráfico) (3 SP)
+- ✅ T11.1 Activos/passivos (repo live/mock) + lista (3 SP)
+- ✅ T11.2 Património líquido + evolução anual (`fl_chart` BarChart) (3 SP)
 
 ## ÉPICO 12 — Microcrédito  *(Squad C · S12)*
-- ⬜ T12.1 Cálculo do Score MAJU (0–1000) (5 SP)
-- ⬜ T12.2 Elegibilidade (microcrédito/seguro/investimento) (3 SP)
-- ⬜ T12.3 Pedido de microcrédito (workflow) (5 SP)
+- ✅ T12.1 Cálculo do Score MAJU (0–1000, derivado de finanças/dívidas/metas) (5 SP)
+- ✅ T12.2 Elegibilidade (microcrédito/seguro/investimento) (3 SP)
+- 🟨 T12.3 Pedido de microcrédito — CTA + confirmação feita; workflow/back-office pendente (5 SP)
 
 ---
 
