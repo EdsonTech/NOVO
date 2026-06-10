@@ -41,6 +41,32 @@ class FinancesScreen extends ConsumerWidget {
               ),
               orElse: () => const SizedBox.shrink(),
             ),
+            const SizedBox(height: 14),
+            Row(
+              children: [
+                Expanded(
+                  child: StatTile(
+                    icon: Icons.show_chart,
+                    label: 'Fluxo de Caixa',
+                    value: 'Ver',
+                    color: MajuColors.blue700,
+                    bg: MajuColors.blue100,
+                    onTap: () => context.push(Routes.cashflow),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: StatTile(
+                    icon: Icons.credit_card,
+                    label: 'Dívidas',
+                    value: '${ref.watch(debtsProvider).length} ativas',
+                    color: MajuColors.orange500,
+                    bg: MajuColors.orange100,
+                    onTap: () => context.push(Routes.debts),
+                  ),
+                ),
+              ],
+            ),
             const SectionTitle('Movimentos'),
             MajuList(
               children: [

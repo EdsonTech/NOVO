@@ -67,10 +67,11 @@ Shared building blocks in `core/widgets/maju_widgets.dart` (`MajuCard`, `HeroBal
 styles when a component/token exists.
 
 ### Implemented vs scaffolded
-- **Fully wired:** onboarding (splash + 3 steps), Dashboard, Finanças (list + add with
-  live totals via providers), Família, Sonhos.
+- **Fully wired:** onboarding (splash + 3 steps); Dashboard; Finanças (movements list +
+  add with live totals, Fluxo de Caixa via `fl_chart`, Dívidas + plano); Família; Sonhos
+  (live goals repo, criar meta, simulador); **Desafio 1 Milhão**.
 - **Placeholders** (routed to `JourneyPlaceholderScreen`, owned by later sprints):
-  Desafio 1 Milhão, Academia, MAJU IA, Património, Score, Configurações.
+  Academia, MAJU IA, Património, Score, Configurações, Centro de Negócios/Marketplace.
 - The web prototype in `/prototype` already models the UI for **all** 30 screens — use it
   as the spec when implementing a placeholder.
 

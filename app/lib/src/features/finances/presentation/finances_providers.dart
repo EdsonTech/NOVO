@@ -3,6 +3,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../core/config/env.dart';
 import '../data/finances_repository.dart';
+import '../domain/cash_flow.dart';
 import '../domain/transaction.dart';
 
 /// Picks the live (Supabase) or mock (in-memory) repository based on config.
@@ -50,4 +51,26 @@ final addTransactionProvider =
     await ref.read(financesRepositoryProvider).add(tx);
     ref.invalidate(transactionsProvider);
   };
+});
+
+/// Six-month cash-flow series for the Fluxo de Caixa chart.
+/// TODO(S5): derive from `transactions` grouped by month once history exists.
+final cashflowProvider = Provider<List<MonthlyFlow>>((ref) {
+  return const [
+    MonthlyFlow(label: 'Jan', income: 420000, expense: 380000),
+    MonthlyFlow(label: 'Fev', income: 480000, expense: 410000),
+    MonthlyFlow(label: 'Mar', income: 510000, expense: 430000),
+    MonthlyFlow(label: 'Abr', income: 540000, expense: 460000),
+    MonthlyFlow(label: 'Mai', income: 500000, expense: 440000),
+    MonthlyFlow(label: 'Jun', income: 545000, expense: 410000),
+  ];
+});
+
+/// Active debts and a simple liquidation outlook.
+final debtsProvider = Provider<List<Debt>>((ref) {
+  return const [
+    Debt(title: 'Empréstimo BAI', kind: 'Empréstimo', balance: 1200000, installments: 24),
+    Debt(title: 'Cartão de Crédito', kind: 'Cartão', balance: 180000, installments: 0),
+    Debt(title: 'Crédito Informal (Kixikila)', kind: 'Informal', balance: 90000, installments: 3),
+  ];
 });

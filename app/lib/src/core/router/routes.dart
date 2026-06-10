@@ -15,6 +15,12 @@ abstract class Routes {
 
   // Finance sub-routes
   static const addTransaction = '/finances/add';
+  static const cashflow = '/finances/cashflow';
+  static const debts = '/finances/debts';
+
+  // Goals sub-routes
+  static const createGoal = '/goals/new';
+  static const simulator = '/goals/simulator';
 
   // More / journeys
   static const challenge = '/more/challenge';

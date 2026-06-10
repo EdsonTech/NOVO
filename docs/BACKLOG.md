@@ -35,8 +35,8 @@ para receber metas personalizadas.
 - ✅ T4.1.2 Impl. in-memory (mock) + impl. Supabase (3 SP)
 - ✅ T4.1.3 Lista de movimentos + totais live (Riverpod) (3 SP)
 - ✅ T4.1.4 Formulário "Nova Receita/Despesa" com validação (3 SP)
-- ⬜ T4.1.5 Fluxo de Caixa (gráfico entrada vs saída) (3 SP)
-- ⬜ T4.1.6 Dívidas + plano de liquidação (avalanche/snowball) (5 SP)
+- ✅ T4.1.5 Fluxo de Caixa (gráfico entrada vs saída, `fl_chart`) (3 SP)
+- ✅ T4.1.6 Dívidas + plano de liquidação (avalanche) (5 SP)
 
 ## ÉPICO 5 — Família  *(Squad A · S6)*
 **US5.1** Como administradora, quero convidar o cônjuge e gerir permissões.
@@ -46,14 +46,14 @@ para receber metas personalizadas.
 - ⬜ T5.1.4 Conselho Familiar (resumo mensal + recomendações) (3 SP)
 
 ## ÉPICO 6 — Sonhos & Metas  *(Squad A · S6)*
-- ✅ T6.1 Lista de sonhos com progresso (2 SP)
-- ⬜ T6.2 Criar meta (valor, prazo, contribuição) (3 SP)
-- ⬜ T6.3 Simulador "quanto preciso poupar?" (2 SP)
+- ✅ T6.1 Lista de sonhos com progresso (repositório live/mock) (2 SP)
+- ✅ T6.2 Criar meta (valor, prazo, contribuição) (3 SP)
+- ✅ T6.3 Simulador "quanto preciso poupar?" (2 SP)
 
 ## ÉPICO 7 — Desafio 1 Milhão  *(Squad B · S7)*
-- ⬜ T7.1 Objetivo + progresso (2 SP)
-- ⬜ T7.2 Plano Inteligente (gap atual vs desejado) (3 SP)
-- ⬜ T7.3 Plano de Crescimento (sugestões de receita) (3 SP)
+- ✅ T7.1 Objetivo + progresso (2 SP)
+- ✅ T7.2 Plano Inteligente (gap atual vs desejado) (3 SP)
+- ✅ T7.3 Plano de Crescimento (sugestões de receita) (3 SP)
 
 ## ÉPICO 8 — Empreendedorismo  *(Squad B · S8)*
 - ⬜ T8.1 Centro de Negócios (ideias) (2 SP)
@@ -81,7 +81,7 @@ para receber metas personalizadas.
 ---
 
 ### Dívida técnica / transversal
-- ⬜ CI: `flutter analyze` + `flutter test` no PR.
+- ✅ CI: `flutter analyze` + `flutter test` no PR (`.github/workflows/flutter.yml`).
 - ⬜ Fontes Montserrat/Inter empacotadas em `app/assets/fonts/`.
 - ⬜ i18n (pt-AO base, en) com `flutter_localizations`.
 - ⬜ Observabilidade (Sentry/Crashlytics) + analytics de produto.
