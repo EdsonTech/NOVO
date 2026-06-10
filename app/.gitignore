@@ -1,0 +1,24 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Env / secrets — never commit real keys
+.env
+*.keystore
+key.properties
+
+# Generated
+*.g.dart
+*.freezed.dart
+
+# OS
+.DS_Store
