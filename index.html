@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8" />
+<title>MAJU Finanças — Organize Hoje. Prospere Amanhã.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="theme-color" content="#15396B" />
+<meta name="description" content="MAJU Finanças — ecossistema de prosperidade financeira familiar e empreendedorismo feminino para Angola e PALOPs." />
+<link rel="icon" href="assets/maju-logo.png" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/maju.css" />
+</head>
+<body>
+  <!-- Mobile device frame (decorative on desktop, full-bleed on phones) -->
+  <div class="device">
+    <!-- Status / app header (hidden on onboarding screens) -->
+    <header id="appHeader" class="app-header hidden">
+      <button id="backBtn" class="icon-btn" aria-label="Voltar">‹</button>
+      <div class="app-header__title" id="headerTitle">MAJU</div>
+      <button id="profileBtn" class="icon-btn" aria-label="Perfil">⚙</button>
+    </header>
+
+    <!-- Screen viewport -->
+    <main id="screen" class="screen" role="main"></main>
+
+    <!-- Bottom tab navigation (hidden on onboarding screens) -->
+    <nav id="tabBar" class="tabbar hidden" aria-label="Navegação principal">
+      <button class="tab" data-screen="home"><span class="tab__icon">🏠</span><span>Início</span></button>
+      <button class="tab" data-screen="financas"><span class="tab__icon">💰</span><span>Finanças</span></button>
+      <button class="tab" data-screen="familia"><span class="tab__icon">👨‍👩‍👧</span><span>Família</span></button>
+      <button class="tab" data-screen="sonhos"><span class="tab__icon">🎯</span><span>Sonhos</span></button>
+      <button class="tab" data-screen="mais"><span class="tab__icon">⋯</span><span>Mais</span></button>
+    </nav>
+  </div>
+
+  <script src="js/maju.js"></script>
+</body>
+</html>

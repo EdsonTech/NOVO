@@ -4,123 +4,138 @@ Guidance for AI assistants (Claude Code and others) working in this repository.
 
 ## Project overview
 
-**IDS-Estudantes** is a static, single-page marketing/institutional website for the
-*IDS-Estudantes — Projeto de Formação de Quadros*, a non-profit Angolan project that
-sponsors and supports students ("formação do novo homem Angolano"). The mantenedor/tutor
-of the project is Ismael Diogo da Silva.
+**MAJU Finanças** — *"Organize Hoje. Prospere Amanhã."* — is a financial wellbeing
+platform for Angolan families and women entrepreneurs (target market: Angola + PALOPs).
+The product vision goes beyond expense tracking: it's an ecosystem of family financial
+prosperity and female entrepreneurship, structured around four journeys — **Financeira,
+Familiar, Empreendedora, Patrimonial**.
 
-The site is built on a free **W3Layouts "Freightage"** Bootstrap template (Creative
-Commons Attribution 3.0) that has been progressively customized for the IDS brand and
-Portuguese-language content. Much of the original template's placeholder copy (Lorem
-ipsum, "Vehicles Gallery", "Comfortable Payment", London contact address, etc.) is still
-present and is being replaced section by section.
+This repository currently contains the **functional front-end prototype (MAJU 1.0)** — a
+clickable, mobile-first single-page web app that implements all **30 screens across 12
+journeys** with MAJU branding, navigation, mock data, and simple charts. It exists to
+validate the UX and demo the product before the native build.
 
-There is **no build step, no package manager, and no backend**. It is plain HTML, CSS,
-and JavaScript served as static files.
+> The previous contents of this repo (a W3Layouts "Freightage" static template) were
+> removed and replaced by this app.
 
-## Tech stack
+## Tech stack (current prototype)
 
-- **HTML5** — single page, `index.html` is the entire site.
-- **CSS3** — Bootstrap 3 grid + a large custom stylesheet.
-- **JavaScript** — jQuery 2.1.4 plus a handful of vendor plugins (no custom JS modules;
-  initialization is done inline at the bottom of `index.html`).
-- **Fonts/Icons** — Font Awesome and Glyphicons (local files under `fonts/`).
-- No Node, no npm, no bundler, no transpilation, no tests.
+- **Plain HTML + CSS + vanilla JavaScript** — no framework, no build step, no backend.
+- A small hand-written **JS router** drives a screen registry (one function per screen).
+- **Google Fonts**: Montserrat (headings) + Inter (body). Charts are inline **SVG**.
+- Mobile-first; renders inside a centered phone-width "device" frame on desktop.
+
+## Production target (roadmap, NOT yet built)
+
+The intended production architecture — document/respect when planning the real build:
+
+- **Frontend:** Flutter + Material 3, responsive
+- **Backend:** Spring Boot 3 / Java 21 / WebFlux
+- **Data:** PostgreSQL · **Cache:** Redis
+- **Cloud:** Azure · **IA:** Azure OpenAI · **BI:** Power BI Embedded
+- **Auth/Security:** Azure AD B2C, MFA, OTP via SMS
+
+Commercial roadmap: Fase 1 (10k utilizadoras) → Fase 5 (MAJU Invest Angola / Banco Digital).
 
 ## Repository structure
 
 ```
 /
-├── index.html                 # The entire site (all sections + inline JS init)
+├── index.html          # App shell: device frame, header, screen <main>, bottom tab bar
 ├── css/
-│   ├── bootstrap.css          # Vendor — Bootstrap 3 (do not edit)
-│   ├── font-awesome.min.css   # Vendor — icon font (do not edit)
-│   ├── chocolat.css           # Vendor — lightbox styles
-│   ├── style.css              # PRIMARY custom stylesheet — edit this for site styling
-│   └── common.css             # Small shared helpers (e.g. .ch-grid)
+│   └── maju.css        # Full design system (tokens, components, onboarding, charts)
 ├── js/
-│   ├── jquery-2.1.4.min.js    # Vendor — jQuery (required first)
-│   ├── bootstrap-3.1.1.min.js # Vendor — Bootstrap JS (navbar, modals)
-│   ├── responsiveslides.min.js# Vendor — banner slider (#slider3)
-│   ├── jarallax.js            # Vendor — parallax background (.jarallax)
-│   ├── jquery.chocolat.js     # Vendor — gallery lightbox (.gallery a)
-│   ├── modernizr.custom.js    # Vendor — feature detection
-│   ├── numscroller-1.0.js     # Vendor — animated number counters
-│   ├── move-top.js, easing.js # Vendor — scroll-to-top button
-│   └── SmoothScroll.min.js    # Vendor — smooth scrolling
-├── images/                    # All site imagery and brand logos
-├── fonts/                     # Font Awesome + Glyphicons webfonts
-└── w3layouts-License.txt      # Template license / attribution notes
+│   └── maju.js         # State, mock data, helpers, all 30 screens, router
+├── assets/
+│   ├── maju-logo.png            # Brand logo (blue "Maju" + orange "FINANÇAS" + bulb/$)
+│   └── maju-design-reference.png# Original design mockup + colour palette (reference only)
+└── CLAUDE.md
 ```
 
-### Page sections (anchors inside `index.html`)
+There is **no `package.json`** and nothing to install.
 
-The navbar scrolls to in-page anchors. Key section IDs:
+## How `js/maju.js` is organised
 
-- `#home` — banner / hero slider (`.rslides #slider3`)
-- `#features` — **"Sobre o IDS"** (visão / missão / valores, tutor bio)
-- `#stats` — parallax band with EDUCAÇÃO / SOCIEDADE / etc.
-- `#capabilities` — **"Distribuição dos Campus"** (UNASP, IABC, UAP, Huaqiao…)
-- `#team` — "Our Team" (still template placeholder content)
-- `#gallery` — image gallery with Chocolat lightbox
-- `#contact` — contact info + Google Maps iframe
-- Modals: `#myModal1` (Send Message), `#myModal2` (Login), `#myModal3` (Register)
+Read it top-to-bottom; it is intentionally a single file with clear sections:
+
+1. **`state`** — in-memory mock data (`profile`, `receitas`, `despesas`, `sonhos`,
+   `activos`). This is the single source of truth; screens render from it.
+2. **Helpers** — `kz()` (Kwanza formatter, `pt-PT` grouping + " Kz"), `sum()`, `pct()`,
+   `toast()`, and SVG chart builders `barChart()` / `lineChart()`.
+3. **Reusable blocks** — `stat()`, `listItem()`, `goalCard()`, etc. Compose screens from
+   these instead of writing bespoke markup.
+4. **`S` (screens registry)** — `S["screen-id"] = () => ({ html, title?, root?, chrome? })`.
+   - `chrome:false` → onboarding screen: hides the header and tab bar (full-bleed).
+   - `root:true` → a bottom-tab root: hides the back button.
+   - `title` → text shown in the app header.
+5. **Router** — `navigate(id)` / `goBack()` over a `history` stack; `render(id)` toggles
+   header/tab-bar chrome and highlights the active tab via the `TAB_OF` map.
+6. **Event delegation** — one global `click` listener handles `data-*` hooks (below).
+
+### `data-*` interaction hooks (used in screen HTML)
+
+| Attribute | Effect |
+|---|---|
+| `data-nav="screen-id"` | Navigate to a screen (pushes history) |
+| `data-pick="field" data-val="x"` | Single-select chip; writes to `state.profile[field]` |
+| `data-toggle` | Toggle a chip/category on/off |
+| `data-cat` | Toggle a diagnostic category row |
+| `data-add="receita\|despesa"` | Read the form inputs, push to `state`, toast, go back |
+| `data-toast="message"` | Show a transient toast |
+
+## Screen map (30 screens / 12 journeys)
+
+`splash → quem-e-voce → situacao → diagnostico` (onboarding) → `home`. Bottom tabs:
+**home · financas · familia · sonhos · mais**. Sub-screens hang off these:
+
+- **Finanças:** receitas, despesas, fluxo, dividas, nova-receita, nova-despesa
+- **Família:** familia, convite, conselho
+- **Sonhos:** sonhos, meta, simulador, desafio, plano-inteligente, plano-crescimento
+- **Mais:** negocios, plano-negocio, marketplace, academia, cursos, chat-ia, assistente,
+  patrimonio, evolucao, score, elegibilidade, config
 
 ## Local development
 
-This is a static site — just open or serve the files. No install step.
+Static site — no install, no build.
 
 ```bash
-# Option A: open directly
-open index.html              # macOS (use xdg-open on Linux)
-
-# Option B: serve over HTTP (preferred — modals, iframes, fonts behave better)
-python3 -m http.server 8000  # then visit http://localhost:8000
+python3 -m http.server 8000   # then open http://localhost:8000
+# or just open index.html in a browser
 ```
 
-There is nothing to build, lint, or test. "Running the app" means loading
-`index.html` in a browser and visually verifying the affected section.
+There are no tests or linters. "Verify" = open it and click through the flow you changed.
 
 ## Conventions
 
-- **Edit `css/style.css` for styling.** Treat `bootstrap.css`, `font-awesome.min.css`,
-  `chocolat.css`, and everything in `js/` as vendored third-party files — do not modify
-  them unless explicitly asked.
-- **Layout uses the Bootstrap 3 grid** (`col-md-*`, `col-xs-*`, `.container`, `.row`,
-  `.clearfix`). Follow the existing column patterns rather than introducing flexbox/grid.
-- **JavaScript is initialized inline** at the bottom of `index.html` (slider, jarallax,
-  Chocolat, smooth scroll, scroll-to-top). Add new plugin init in the same place, after
-  the relevant `<script src>` include, and keep jQuery loaded first.
-- **Class naming** follows the template's `w3l`, `w3ls`, `agileits`, `wthree`,
-  `hvr-*` (Hover.css) conventions. Reuse existing classes where possible.
-- **Content language is Portuguese (pt-AO)** for IDS copy; the template still ships some
-  English placeholder text. When replacing placeholders, write in Portuguese to match the
-  customized sections.
-- **Images** go in `images/`. Reference them with relative paths (`images/foo.jpg`).
-  Brand logos use the `LOGOTIPO …` filenames; the active navbar logo is `images/0012.png`.
-- **Preserve the W3Layouts footer attribution** unless the user confirms they have the
-  rights/plan to remove it (see `w3layouts-License.txt`).
+- **Add a screen:** register `S["new-id"] = () => ({...})`, add it to `TAB_OF` so the
+  correct bottom tab highlights, and link to it with `data-nav="new-id"`.
+- **Build UI from the existing component helpers and CSS classes** (`.card`, `.hero`,
+  `.stat`, `.li`, `.btn--primary/--blue/--ghost`, `.chip`, `.prog`). Don't hand-roll new
+  styles when a token/component exists. Brand tokens live in `:root` in `maju.css`
+  (`--blue-800`, `--orange-500`, `--green-500`, …).
+- **Money is always Kwanza** — format with `kz()`, never hardcode currency strings.
+- **Content language is Portuguese (pt-AO).** Keep copy in Portuguese.
+- **Keep it dependency-free.** No npm packages, CDNs (besides the Google Fonts link), or
+  frameworks in the prototype. Charts stay as inline SVG.
+- **Mock data only** — there is no backend. New "saved" data lives in `state` for the
+  session. Don't add real network calls without discussing the production plan first.
 
 ## Git workflow
 
-- Active development branch for this work: **`claude/claude-md-documentation-bfd1lu`**.
-  Develop, commit, and push here. Do not push to `master` without explicit permission.
-- Commit history is incremental with short, version-style messages, often in Portuguese
-  (e.g. "atualização 2.1", "AT3,2", "Atualização 1.8"). Keep messages short and
-  descriptive; English or Portuguese is fine.
-- Push with `git push -u origin <branch>`; retry transient network failures with backoff.
+- Active branch: **`claude/claude-md-documentation-bfd1lu`**. Develop, commit, push here;
+  do not push to `master` without explicit permission.
+- Commit messages are short, often Portuguese (e.g. "atualização 2.1"). Keep them concise.
+- Push with `git push -u origin <branch>`; retry transient network errors with backoff.
 - **Do not open a pull request unless explicitly asked.**
 
 ## Working notes for AI assistants
 
-- This is an ongoing customization of a template: expect a mix of finished IDS content and
-  leftover template placeholders in the same file. When asked to "develop per the
-  prototypes," the task is typically to replace remaining placeholder sections (team,
-  gallery captions, contact details, slider copy) with real IDS content and styling.
-- Because there are no tests, **verify changes visually** in a browser and check that you
-  have not broken the Bootstrap grid (`.clearfix` / column counts) or the inline JS init.
-- Keep edits surgical and section-scoped — `index.html` is one large file; match the
-  surrounding indentation (tabs) and HTML style.
-- When adding interactivity, prefer the jQuery/Bootstrap 3 already loaded over pulling in
-  new dependencies.
+- The design mockup in `assets/maju-design-reference.png` is the visual source of truth —
+  match its blue/orange/green palette and card-based layout when adding screens.
+- This is a **prototype**: prioritise a convincing, navigable demo over real persistence,
+  auth, or data integrity. Flag clearly when something is mocked.
+- When asked to "develop per the prototypes," map the request to the 30-screen / 12-journey
+  spec above and reuse existing screen patterns.
+- Keep edits surgical and section-scoped; `js/maju.js` is one file — match its style and
+  the existing component helpers.
 ```
